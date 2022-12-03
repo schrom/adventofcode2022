@@ -7,15 +7,15 @@ fun main() {
 
     val sum = data.sumOf {
         val other = when (it[0]) {
-            'A' -> Rock()
-            'B' -> Paper()
-            'C' -> Scissors()
+            'A' -> Shape.ROCK
+            'B' -> Shape.PAPER
+            'C' -> Shape.SCISSORS
             else -> throw IllegalArgumentException(it)
         }
         val me = when (it[2]) {
-            'X' -> other.getWinAgainstShape()
+            'X' -> other.isWinningAgainst()
             'Y' -> other
-            'Z' -> other.getLoseAgainstShape()
+            'Z' -> other.isLosingAgainst()
             else -> throw IllegalArgumentException(it)
         }
         me.getScoreFor(other)
